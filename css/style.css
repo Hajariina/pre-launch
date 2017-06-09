@@ -139,8 +139,8 @@ ul.icons-text li:nth-child(2) {
 }
 .bg-agile h3 {
     color: #fff;
-    text-transform: capitalize;
-    font-size: 16px;
+/*    text-transform: capitalize;
+*/    font-size: 16px;
     margin-bottom: 8px;
     letter-spacing: 1px;
 }
