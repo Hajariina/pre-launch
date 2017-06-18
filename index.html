@@ -13,6 +13,7 @@
 function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Meta tag Keywords -->
 <link href="css/font-awesome.css" rel="stylesheet">
+<link href="css/daterangepicker.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- js -->
 <script src="js/jquery-2.2.3.min.js"></script> 
@@ -47,7 +48,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			 </ul>
 		 </div> -->
 			<h2>Het is van uiterst belang dat onderstaande gegevens overeenkomen met je paspoort. Alleen zo kunnen we je garanderen dat je ticket juist wordt geboekt.</h2> <br /> <br />
-			<h3>Ja, ik wil een vakantie naar keuze!</h3>
+			<h3>Ja, ik wil een vakantie naar keuze winnen!</h3>
 			<div class="login-form">			
 							<form action="#" method="post">
 								<input type="text"  name="FirstName" placeholder="Voornaam" required="" />
@@ -56,7 +57,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								<input type="email"  name="Email" placeholder="Email" required="" />
 
 								<select class="form-control" name="malefemale">
-									<option>Ik ben een</option>
+									<option>Ik ben een ...</option>
 									<option>Vrouw</option>
 									<option>Man</option>
 								</select>
@@ -68,13 +69,13 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								</select>
 
 								<p style="color: white;"> Wanneer ben jij geboren? </p>
-								<input type="text"  name="birthday" placeholder="DD-MM-YYYY" required="" />
+								<input type="text" name="birthdate" value="10/24/1990" required placeholder="DD-MM-YYYY"/>
 								<p style="color: white;"> Welke vakantiebestemming wil jij winnen?</p>
 								<input type="text"  name="favoriteholiday" placeholder="Land of stad naar keuze" required="" />
 								<!-- Ik wil naar... (land/stad naar keuze) -->
 								<h3>Prijs en bloemen kunnen opgestuurd worden naar:</h3>
 								<div class="left-w3-agile">
-									<select class="form-control" name="country">
+									<select class="form-control" name="country" style="width: 108%">
 										
 										<option>Nederland</option>
 										<option>Belgie</option>
@@ -87,17 +88,15 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								</div>
 								<textarea name="message" value="Address" placeholder="Street address" ></textarea>
 
-								<input type="submit" value="Ja, ik ga ervoor!">
-								<br />
-								<p style="color: gray;"> * trouwbedrijven mogen zich melden via hajar@hajar.com</p>
+								<input type="submit" value="Verstuur">
+								<br />							
 							</form>	
+								<a href="leverancier"><input type="submit" value="meld mij aan als leverancier >>" style="width: 276px; background: #FF9226; position: absolute; top:0; right:0; margin-right: 10px; font-size: 14px; border-radius: 15px;">
+								</a>
 						</div>	
 		</div>
 
 
-
-	
-	<script src="js/jquery.vide.min.js"></script>
 	<!-- //banner --> 
 
 	</div>	
@@ -105,15 +104,24 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery-2.2.3.min.js"></script>
+<script src="js/jquery.vide.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/daterangepicker.js"></script>
 
 <script type="text/javascript">
-	$("input").on("change", function() {
-    this.setAttribute(
-        "data-date",
-        moment(this.value, "YYYY-MM-DD")
-        .format( this.getAttribute("data-date-format") )
-    )
-}).trigger("change")
+	jQuery(document).ready(function($) {
+		$(function() {
+		    $('input[name="birthdate"]').daterangepicker({
+		        singleDatePicker: true,
+		        showDropdowns: true
+		    }, 
+		    function(start, end, label) {
+		        var years = moment().diff(start, 'years');
+		        // alert("You are " + years + " years old.");
+		    });
+		});
+	});
 </script>
 </body>
 </html>

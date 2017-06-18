@@ -54,6 +54,38 @@ width: 100%;
     padding: 0em 0 1em;
     background:rgba(0, 0, 0, 0.42);
 }
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+.table-condensed>thead>tr>th {
+    padding: 5px 2px;
+    font-weight: bold;
+}
+.table-condensed>thead>tr>th.available {
+    padding: 5px 2px 1px;
+}
+.table-condensed>tbody>tr>td {
+    padding: 4px 2px 2px;
+}
 /*-- //banner --*/  
 .w3ls-agileinfo {
     padding: 2em 0;
@@ -208,6 +240,7 @@ select.form-control {
 }
 option{
 	background:#000;
+	color: #fff;
 }
 .left-w3-agile {
     width: 45%;
